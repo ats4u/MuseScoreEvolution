@@ -470,20 +470,17 @@ void StaffTextProperties::saveValues()
       if (setSwingBox->isChecked()) {
             _staffText->setSwing(true);
             if (swingOff->isChecked()) {
-                  _staffText->setSwingParameters(0, swingBox->value(), 0);
-                  // laidbackBox->setSwingParameters(0, swingBox->value(), 0 );
+                  _staffText->setSwingParameters(0, swingBox->value(), laidbackBox->value() );
                   swingBox->setEnabled(false);
                   laidbackBox->setEnabled(false);
                   }
             else if (swingEighth->isChecked()) {
                   _staffText->setSwingParameters(MScore::division/2, swingBox->value(), laidbackBox->value() );
-                  // laidbackBox->setSwingParameters(MScore::division/2, swingBox->value(), laidbackBox->value() );
                   swingBox->setEnabled(true);
                   laidbackBox->setEnabled(true);
                   }
             else if (swingSixteenth->isChecked()) {
                   _staffText->setSwingParameters(MScore::division/4, swingBox->value(), laidbackBox->value() );
-                  // laidbackBox->setSwingParameters(MScore::division/4, swingBox->value(), laidbackBox->value() );
                   swingBox->setEnabled(true);
                   laidbackBox->setEnabled(true);
                   }

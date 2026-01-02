@@ -61,7 +61,8 @@ void StaffTextBase::write(XmlWriter& xml) const
             else
                   swingUnit = TDuration(TDuration::DurationType::V_ZERO).name();
             int swingRatio = swingParameters()->swingRatio;
-            xml.tagE(QString("swing unit=\"%1\" ratio=\"%2\"").arg(swingUnit).arg(swingRatio));
+            int laidbackOffset = swingParameters()->laidbackOffset;
+            xml.tagE(QString("swing unit=\"%1\" ratio=\"%2\" offset=\"%3\"").arg(swingUnit).arg(swingRatio).arg(laidbackOffset));
             }
       if (capo() != 0)
             xml.tagE(QString("capo fretId=\"%1\"").arg(capo()));
@@ -143,9 +144,12 @@ bool StaffTextBase::readProperties(XmlReader& e)
                   unit = MScore:: division / 4;
             else if (swingUnit == TDuration(TDuration::DurationType::V_ZERO).name())
                   unit = 0;
-            int ratio = e.intAttribute("ratio", 60);
+
+            int ratio  = e.intAttribute("ratio", 60);
+            int offset = e.intAttribute("offset", 0);
             setSwing(true);
-            setSwingParameters(unit, ratio, 0 );
+            setSwingParameters(unit, ratio, offset );
+
             e.readNext();
             }
       else if (tag == "capo") {

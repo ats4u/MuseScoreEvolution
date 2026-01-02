@@ -110,8 +110,9 @@ void Score::updateSwing()
                   if (!st->swing())
                         continue;
                   SwingParameters sp;
-                  sp.swingRatio = st->swingParameters()->swingRatio;
-                  sp.swingUnit = st->swingParameters()->swingUnit;
+                  sp.swingRatio     = st->swingParameters()->swingRatio;
+                  sp.swingUnit      = st->swingParameters()->swingUnit;
+                  sp.laidbackOffset = st->swingParameters()->laidbackOffset;
                   if (st->systemFlag()) {
                         for (Staff* sta : qAsConst(_staves)) {
                               sta->insertIntoSwingList(s->tick(),sp);
