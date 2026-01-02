@@ -26,7 +26,7 @@ namespace Ms {
 StaffTextBase::StaffTextBase(Score* s, Tid tid, ElementFlags flags)
    : TextBase(s, tid, flags)
       {
-      setSwingParameters(MScore::division / 2, 60);
+      setSwingParameters(MScore::division / 2, 60,0);
       }
 
 //---------------------------------------------------------
@@ -145,7 +145,7 @@ bool StaffTextBase::readProperties(XmlReader& e)
                   unit = 0;
             int ratio = e.intAttribute("ratio", 60);
             setSwing(true);
-            setSwingParameters(unit, ratio);
+            setSwingParameters(unit, ratio, 0 );
             e.readNext();
             }
       else if (tag == "capo") {

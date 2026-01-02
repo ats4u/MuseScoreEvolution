@@ -1629,7 +1629,7 @@ PalettePanel* MuseScore::newTextPalettePanel(bool defaultPalettePanel)
       // need to be true to enable the "Off" option
       stxt->setSwing(true);
       // 0 (swingUnit) turns of swing; swingRatio is set to default
-      stxt->setSwingParameters(0, stxt->score()->styleI(Sid::swingRatio));
+      stxt->setSwingParameters(0, stxt->score()->styleI(Sid::swingRatio), stxt->score()->styleI(Sid::laidbackOffset ) );
       /*: System text to switch from swing rhythm back to straight rhythm */
       sp->append(stxt, QT_TRANSLATE_NOOP("Palette", "Straight"))->setElementTranslated(true);
 

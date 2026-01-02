@@ -3523,7 +3523,9 @@ void MusicXMLParserDirection::direction(const QString& partId,
                       toStaffTextBase(t)->setSwing(true);
                       toStaffTextBase(t)->setSwingParameters(_swing.first,
                                                              _swing.first ? _swing.second
-                                                             : toStaffTextBase(t)->score()->styleI(Sid::swingRatio));
+                                                             : toStaffTextBase(t)->score()->styleI(Sid::swingRatio)
+                                                             ,0
+                                                             );
                       _swing.second = 0;
                   }
 
