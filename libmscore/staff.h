@@ -53,6 +53,7 @@ enum class Key : signed char;
 struct SwingParameters {
       int swingUnit;
       int swingRatio;
+      int laidbackOffset;
       };
 
 //---------------------------------------------------------

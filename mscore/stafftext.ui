@@ -4149,6 +4149,47 @@ VI</string>
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_2ex">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>95</y>
+            <width>601</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_16ex">
+           <item>
+            <widget class="QLabel" name="label_12ex">
+             <property name="text">
+              <string>Select laid back amount:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="laidbackBox">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="suffix">
+              <string>ticks</string>
+             </property>
+             <property name="singleStep">
+               <number>111</number>
+             </property>
+             <property name="minimum">
+              <number>-1000</number>
+             </property>
+             <property name="maximum">
+              <number>1000</number>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>

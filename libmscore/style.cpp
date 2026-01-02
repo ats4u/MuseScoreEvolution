@@ -1450,7 +1450,9 @@ static const StyleType styleTypes[] {
 
       { Sid::autoplaceEnabled,              "autoplaceEnabled",              true },
       { Sid::usePre_3_6_defaults,           "usePre_3_6_defaults",           false},
-      { Sid::defaultsVersion,               "defaultsVersion",               Ms::MSCVERSION}
+      { Sid::defaultsVersion,               "defaultsVersion",               Ms::MSCVERSION},
+
+      { Sid::laidbackOffset,                "laidbackOffset",                QVariant(0)   },
       };
 
 MStyle  MScore::_baseStyle;

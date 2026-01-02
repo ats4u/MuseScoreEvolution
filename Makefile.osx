@@ -26,6 +26,7 @@ MUSESCORE_BUILD_CONFIG="dev"
 MUSESCORE_REVISION=""
 CPUS = `sysctl -n hw.logicalcpu`
 XCODEPROJ = mscore.xcodeproj
+MUSESCORE_SOUNDFONT_PATH = "/Users/ats/Documents/repository.synchronized/current/works/random/music-materials/MuseScore_General.sf3"
 
 # Use xcpretty if installed
 ifneq ($(strip $(shell which xcpretty)),)

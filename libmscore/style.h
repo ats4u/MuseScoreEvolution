@@ -1437,6 +1437,8 @@ enum class Sid : short {
       usePre_3_6_defaults,
       defaultsVersion,
 
+      laidbackOffset, // ADDED Sat, 03 Jan 2026 01:39:49 +0900
+
       STYLES
       ///\}
       };
