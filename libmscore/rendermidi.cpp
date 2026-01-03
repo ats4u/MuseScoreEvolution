@@ -1203,7 +1203,7 @@ void MidiRenderer::renderSpanners(const Chunk& chunk, EventMap* events)
 //   swingAdjustParams
 //--------------------------------------------------------
 
-void Score::swingAdjustParams(Chord* chord, int& gateTime, int& ontime, int swingUnit, int swingRatio)
+void Score::swingAdjustParams(Chord* chord, int& gateTime, int& ontime, int swingUnit, int swingRatio, int laidbackOffset )
       {
       Fraction tick = chord->rtick() + chord->measure()->anacrusisOffset();
 
@@ -1211,6 +1211,7 @@ void Score::swingAdjustParams(Chord* chord, int& gateTime, int& ontime, int swin
       qreal ticksDuration     = (qreal)chord->actualTicks().ticks();
       qreal swingTickAdjust   = ((qreal)swingBeat) * (((qreal)(swingRatio-50))/100.0);
       qreal swingActualAdjust = (swingTickAdjust/ticksDuration) * 1000.0;
+      qreal laidbackActualOffset = laidbackOffset;
       ChordRest *ncr          = nextChordRest(chord);
 
       //Check the position of the chord to apply changes accordingly
@@ -1219,6 +1220,9 @@ void Score::swingAdjustParams(Chord* chord, int& gateTime, int& ontime, int swin
                   ontime = ontime + swingActualAdjust;
                   }
             }
+
+      ontime = ontime                     + laidbackActualOffset;
+
       int endTick = tick.ticks() + ticksDuration;
       if ((endTick % swingBeat == swingUnit) && (!isSubdivided(ncr,swingUnit))) {
             gateTime = gateTime + (swingActualAdjust/10);
@@ -2230,9 +2234,10 @@ void Score::createPlayEvents(Chord* chord)
       SwingParameters st = chord->staff()->swing(tick);
       int unit           = st.swingUnit;
       int ratio          = st.swingRatio;
+      int offset         = st.laidbackOffset;
       // Check if swing needs to be applied
       if (unit && !chord->tuplet()) {
-            swingAdjustParams(chord, gateTime, ontime, unit, ratio);
+            swingAdjustParams(chord, gateTime, ontime, unit, ratio, offset );
             }
       //
       //    render normal (and articulated) chords

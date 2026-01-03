@@ -529,7 +529,7 @@ class Score : public QObject, public ScoreElement {
 
       bool rewriteMeasures(Measure* fm, Measure* lm, const Fraction&, int staffIdx);
       bool rewriteMeasures(Measure* fm, const Fraction& ns, int staffIdx);
-      void swingAdjustParams(Chord*, int&, int&, int, int);
+      void swingAdjustParams(Chord*, int&, int&, int, int, int);
       bool isSubdivided(ChordRest*, int);
       void addAudioTrack();
       QList<Fraction> splitGapToMeasureBoundaries(ChordRest*, Fraction);
